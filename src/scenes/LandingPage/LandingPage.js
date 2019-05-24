@@ -8,21 +8,20 @@ import { getGeolocation } from '../../data/geolocation/actions'
 import { getWeather } from '../../data/weather/actions'
 
 export class MainLandingPage extends Component {
-
   state = {
     location: null,
-    unit: 'imperial'
-  }
+  };
 
   componentWillMount() {
     const location = getGeolocation()
       .then(result => {
-        getWeather(result, this.state.unit)
+        getWeather(result)
           .then(locationWeather => {
             this.setState({location: locationWeather});
         })
       })
   }
+
   render() {
     if (this.state.location) {
       return (
