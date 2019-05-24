@@ -6,6 +6,7 @@ import * as Actions from '../../actions/SettingsActions'
 export class BaseUnitSettings extends Component {
   constructor(props) {
     super(props);
+    this.defaultUnit = this.defaultUnit.bind(this)
     this.state = { 
       defaultUnit: Settings.getDefaultUnit(),
       units: Settings.getAllUnits(),
@@ -13,10 +14,16 @@ export class BaseUnitSettings extends Component {
   }
 
   componentWillMount() {
-    Settings.on("change", () => {
-      this.setState({
-        defaultUnit: Settings.getDefaultUnit(),
-      })
+    Settings.on("change", this.defaultUnit);
+  }
+
+  componentWillUnmount() {
+    Settings.removeListener("change", this.defaultUnit);
+  }
+
+  defaultUnit() {
+    this.setState({
+      defaultUnit: Settings.getDefaultUnit(),
     })
   }
 
