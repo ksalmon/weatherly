@@ -1,11 +1,16 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 
+import SearchBar from '../SearchBar'
+
 export class Header extends Component {
   
   render() {
     return (
-      <div>Welcome to Weatherly</div>
+      <div>
+        <h1>Welcome to Weatherly</h1>
+        <SearchBar />
+      </div>
     )
   }
 }

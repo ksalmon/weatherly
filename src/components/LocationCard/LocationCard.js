@@ -6,7 +6,7 @@ import CurrentWeather from '../CurrentWeather'
 export class BaseLocationCard extends Component {
   static propTypes = {
     locationWeather: PropTypes.object.isRequired,
-  }
+  };
 
 
   render() {
