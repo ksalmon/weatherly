@@ -10,7 +10,6 @@ import { getGeolocation } from '../../data/geolocation/actions'
 import { getWeather } from '../../data/weather/actions'
 
 export class MainLandingPage extends Component {
-
   constructor(props) {
     super(props);
     this.changeLocation = this.changeLocation.bind(this);
@@ -30,6 +29,10 @@ export class MainLandingPage extends Component {
     Location.on("change", this.changeLocation);
   }
 
+  componentWillUnmount() {
+    Location.removeListener("change", this.changeLocation);
+  }
+
   changeLocation() {
     const location = Location.getCurrentLocation();
     
@@ -38,7 +41,6 @@ export class MainLandingPage extends Component {
         this.setState({location: locationWeather});
     })
   }
-
 
   render() {
     if (this.state.location) {
