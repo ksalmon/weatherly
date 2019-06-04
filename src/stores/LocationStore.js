@@ -7,9 +7,13 @@ class LocationStore extends EventEmitter {
     this.currentLocation = { lat: 0, lng: 0 }
   }
 
+  getCurrentLocation() {
+    return this.currentLocation
+  }
+
   updateCurrentLocation(newLocation) {
     this.currentLocation = newLocation
-
+    console.log("Location: ",this.currentLocation)
     this.emit('change')
   }
 

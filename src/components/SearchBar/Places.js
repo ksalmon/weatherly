@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import places from 'places.js';
 import connect from './connector';
 
+import Location from '../../stores/LocationStore.js'
+import * as Actions from '../../actions/LocationActions'
+
 class Places extends Component {
   createRef = c => (this.element = c);
 
@@ -14,8 +17,8 @@ class Places extends Component {
     });
 
     autocomplete.on('change', event => {
-      console.log(event.suggestion.latlng)
       refine(event.suggestion.latlng);
+      Actions.updateLocation(event.suggestion.latlng)
     });
 
     autocomplete.on('clear', () => {
