@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import logo from './logo.svg';
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import MainHeader from './components/Header/MainHeader'
 import MainFooter from './components/Footer/MainFooter'
 import LandingPage from './scenes/LandingPage'

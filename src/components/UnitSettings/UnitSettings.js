@@ -36,8 +36,8 @@ export class BaseUnitSettings extends Component {
     return (
       <div>
         <select id="lang" onChange={this.changeUnit.bind(this)} value={defaultUnit.name}>
-          { units.map(unit => {
-              return <option value={unit.name}>{unit.name}</option>
+          { units.map((unit, i) => {
+              return <option key={i} value={unit.name}>{unit.name}</option>
             })
           }
          </select>

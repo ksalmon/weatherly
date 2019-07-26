@@ -19,13 +19,19 @@ export class MainLandingPage extends Component {
   }
 
   componentWillMount() {
-    const location = getGeolocation()
-      .then(result => {
-        getWeather(result)
-          .then(locationWeather => {
-            this.setState({location: locationWeather});
+    console.log(Location.getCurrentLocation())
+    if (!Location.getCurrentLocation()) {
+      const location = getGeolocation()
+        .then(result => {
+          getWeather(result)
+            .then(locationWeather => {
+              this.setState({location: locationWeather});
+          })
         })
-      })
+    } else {
+      console.log(Location.getCurrentLocation())
+      // this.setState({location: Location.getCurrentLocation()});
+    }
     Location.on("change", this.changeLocation);
   }
 

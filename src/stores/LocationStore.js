@@ -4,7 +4,7 @@ import dispatcher from '../dispatcher'
 class LocationStore extends EventEmitter {
   constructor() {
     super();
-    this.currentLocation = { lat: 0, lng: 0 }
+    this.currentLocation = null
   }
 
   getCurrentLocation() {

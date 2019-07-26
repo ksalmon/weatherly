@@ -1,7 +1,5 @@
-import dummyData from '../testLocation'
 const api = require('../callApi.js')
-
-export const appid = '04ce846255b68682ad4270437412d92e'
+const appid = '04ce846255b68682ad4270437412d92e'
 
 export function getWeather(cords) {
   const data = {

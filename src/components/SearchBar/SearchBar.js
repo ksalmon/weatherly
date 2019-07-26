@@ -10,7 +10,7 @@ export class BaseSearchBar extends Component {
   render() {
     const searchClient = algoliasearch(
       'latency',
-      '6be0576ff61c053d5f9a3225e2a90f76'
+      '317f6aac0532d9425b4d56bfbf3b57f7'
     );
   
     return (
